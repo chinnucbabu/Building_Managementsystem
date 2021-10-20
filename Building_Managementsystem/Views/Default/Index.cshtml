@@ -46,7 +46,14 @@
             @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
         </div>
     </div>
-    
+    <div class="form-group">
+        @Html.LabelFor(model => model.isadmin, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+          <input checked="checked" id="isadmin" name="isadmin" type="checkbox" value="true"/>  
+            @Html.ValidationMessageFor(model => model.isadmin, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

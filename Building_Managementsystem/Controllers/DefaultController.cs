@@ -22,8 +22,9 @@ namespace Building_Managementsystem.Controllers
             {
                 context.user_reg.Add(ur);
                 context.SaveChanges();
+                
             }
-            
+            return RedirectToAction("Login");
             return View();
         }
         public ActionResult Maintenancerequest()
@@ -38,6 +39,8 @@ namespace Building_Managementsystem.Controllers
             {
                 context.maintenance_req.Add(mr);
                 context.SaveChanges();
+                return RedirectToAction("Maintanencerequest");
+
             }
             //string message = "Created the record successfully";
             //ViewBag.Message = message;
@@ -52,12 +55,31 @@ namespace Building_Managementsystem.Controllers
         [HttpPost]
         public ActionResult Login(user_reg usr)
         {
-            using (Model1 context = new Model1())
+            if (ModelState.IsValid)
             {
-                context.user_reg.Add(usr);
-                context.SaveChanges();
+                using (Model1 context = new Model1())
+                {
+                    var obj= context.user_reg.Where(a=>a.username.Equals(usr.username)&& a.password_.Equals(usr.password_)).FirstOrDefault();
+                    if(obj!=null)
+                    {
+                        if (obj.isadmin)
+                        {
+                            return RedirectToAction("View");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Maintenancerequest");
+                        }
+                    }
+
+
+
+
+
+                    context.user_reg.Add(usr);
+                    context.SaveChanges();
+                }
             }
-           
             return View();
         }
         public ActionResult Delete()

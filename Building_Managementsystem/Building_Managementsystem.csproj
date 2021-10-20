@@ -179,6 +179,7 @@
     <Content Include="Views\Default\Maintenancerequest.cshtml" />
     <Content Include="Views\Default\Login.cshtml" />
     <Content Include="Views\Default\Delete.cshtml" />
+    <Content Include="Views\Default\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

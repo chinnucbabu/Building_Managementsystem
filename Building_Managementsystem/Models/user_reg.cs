@@ -27,6 +27,6 @@ namespace Building_Managementsystem.Models
         public string address { get; set; }
         [Required]
         public double? phone { get; set; }
-        public bool isadmin { get; set; }
+        public bool isadmin { get; set; } = false;
     }
 }
