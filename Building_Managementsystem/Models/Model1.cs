@@ -1,3 +1,4 @@
+using Building_Managementsystem.Controllers;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -13,7 +14,8 @@ namespace Building_Managementsystem.Models
         }
 
         public virtual DbSet<admin_login> admin_login { get; set; }
-        public virtual DbSet<maintenance_req> Maintenance_Reqs { get; set; }
+        public virtual DbSet<maintenance_req> maintenance_req { get; set; }
+
         public virtual DbSet<user_reg> user_reg { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
